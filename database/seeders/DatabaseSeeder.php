@@ -17,15 +17,12 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::firstOrCreate(
-            ['email' => 'igormarquesdeazevedo11@gmail.com'],
+            ['email' => 'igor@gmail.com'],
             [
                 'name' => 'Igor',
                 'password' => Hash::make('12345'),
                 'email_verified_at' => now(),
             ]
         );
-
-        $this->call(ExemploCategoriasEOrcamentosSeeder::class);
-        $this->call(GastosECategoriasSeeder::class);
     }
 }
