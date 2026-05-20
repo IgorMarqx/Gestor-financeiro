@@ -34,46 +34,10 @@ return new class extends Migration
             $table->index('familia_id');
             $table->foreign('familia_id')->references('id')->on('familias')->nullOnDelete();
         });
-
-        $tables = [
-            'contas',
-            'receitas',
-            'transacoes',
-            'ativos',
-            'carteira_investimentos',
-            'movimentacoes_investimentos',
-            'chats',
-            'chat_mensagens',
-        ];
-
-        foreach ($tables as $tableName) {
-            Schema::table($tableName, function (Blueprint $table) {
-                $table->unsignedBigInteger('familia_id')->nullable()->after('id');
-                $table->index('familia_id');
-            });
-        }
     }
 
     public function down(): void
     {
-        $tables = [
-            'contas',
-            'receitas',
-            'transacoes',
-            'ativos',
-            'carteira_investimentos',
-            'movimentacoes_investimentos',
-            'chats',
-            'chat_mensagens',
-        ];
-
-        foreach ($tables as $tableName) {
-            Schema::table($tableName, function (Blueprint $table) {
-                $table->dropIndex(['familia_id']);
-                $table->dropColumn('familia_id');
-            });
-        }
-
         Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['familia_id']);
             $table->dropIndex(['familia_id']);
