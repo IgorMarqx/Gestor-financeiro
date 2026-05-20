@@ -42,7 +42,7 @@ export function useCreateMember() {
                 const apiMessage = error.response?.data?.message;
                 const apiErrors = error.response?.data?.errors;
                 const firstFieldError = apiErrors ? Object.values(apiErrors)[0]?.[0] : null;
-                const message = firstFieldError ?? apiMessage ?? 'Erro ao criar gasto.';
+                const message = firstFieldError ?? apiMessage ?? 'Erro ao criar membro.';
                 setErrorMessage(message);
                 notifications.error('Não foi possível adicionar o membro', message);
             } else {

@@ -28,11 +28,6 @@ Route::middleware([
     Route::get('/auth/me', [AuthController::class, 'me'])->name('api.auth.me');
     Route::get('/reverb/configs', [ReverbConfigController::class, 'ReverbConfigs'])->name('api.reverb.configs');
 
-    require __DIR__ . '/gastos.php';
-    require __DIR__ . '/categorias-gastos.php';
-    require __DIR__ . '/gastos-recorrentes.php';
-    require __DIR__ . '/gastos-parcelamentos.php';
-    require __DIR__ . '/orcamentos-categorias.php';
     require __DIR__ . '/chat.php';
     require __DIR__ . '/familia.php';
 });

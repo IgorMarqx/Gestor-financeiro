@@ -23,7 +23,7 @@ export default function FamilyLinkTypesCard() {
                         <ul className="space-y-2 text-xs text-muted-foreground">
                             <li className="flex items-start gap-2">
                                 <span className="text-sky-600">•</span>
-                                Acesso total aos gastos e receitas
+                                Acesso total às receitas e contas
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="text-sky-600">•</span>

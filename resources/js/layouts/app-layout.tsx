@@ -1,7 +1,6 @@
 import AppLayoutTemplate from '@/layouts/app/app-sidebar-layout';
-import { type BreadcrumbItem, type SharedData } from '@/types';
+import { type BreadcrumbItem } from '@/types';
 import { type ReactNode } from 'react';
-import { GlobalModals } from '@/components/modals/GlobalModals';
 import { ChatWidget } from '@/components/chat/chat-widget';
 import { usePage } from '@inertiajs/react';
 
@@ -20,7 +19,6 @@ export default function AppLayout({ children, breadcrumbs, ...props }: AppLayout
             </AppLayoutTemplate>
 
             {page.url.includes('/chat') ? null : <ChatWidget />}
-            <GlobalModals />
         </>
     );
 }

@@ -87,8 +87,8 @@ export function ChatConversationPanel({
                                 IA
                             </div>
                             <div className="max-w-[85%] rounded-2xl rounded-tl-md border bg-card px-4 py-3 text-sm">
-                                Me diga o que você quer analisar (gastos, receitas, categorias,
-                                parcelas) e eu monto um resumo.
+                                Me diga o que você quer analisar (receitas, contas, transações ou
+                                investimentos) e eu monto um resumo.
                             </div>
                         </div>
                     ) : null}

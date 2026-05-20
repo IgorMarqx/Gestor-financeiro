@@ -36,12 +36,6 @@ return new class extends Migration
         });
 
         $tables = [
-            'categorias_gastos',
-            'gastos',
-            'gastos_recorrentes',
-            'gastos_parcelamentos',
-            'gastos_parcelas',
-            'orcamentos_categorias',
             'contas',
             'receitas',
             'transacoes',
@@ -63,12 +57,6 @@ return new class extends Migration
     public function down(): void
     {
         $tables = [
-            'categorias_gastos',
-            'gastos',
-            'gastos_recorrentes',
-            'gastos_parcelamentos',
-            'gastos_parcelas',
-            'orcamentos_categorias',
             'contas',
             'receitas',
             'transacoes',

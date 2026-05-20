@@ -162,7 +162,7 @@ class GeminiService
 
         return implode("\n", [
             'Você é o assistente do Gestor Financeiro Inteligente.',
-            'O sistema ajuda o usuário a analisar finanças pessoais: gastos, receitas, categorias, parcelas, orçamentos e movimentos financeiros.',
+            'O sistema ajuda o usuário a analisar finanças pessoais: receitas, contas, transações e investimentos.',
             'Responda sempre em português (pt-BR), de forma objetiva e útil.',
             'Tabelas disponíveis: ' . implode(', ', $allowedTables) . '.',
             'Esquema (tabela: colunas): ' . $schema . '.',
@@ -258,24 +258,12 @@ class GeminiService
             $sql,
         ) ?? $sql;
 
-        $sql = preg_replace(
-            "/\\bid_categoria\\b/i",
-            'categoria_gasto_id',
-            $sql,
-        ) ?? $sql;
-
         return $sql;
     }
 
     private function schemaSummary(): string
     {
         return implode('; ', [
-            'gastos(id, usuario_id, familia_id, nome, valor, data, descricao, categoria_gasto_id, metodo_pagamento, tipo, necessidade, origem_id, deletado_em, created_at, updated_at)',
-            'categorias_gastos(id, usuario_id, familia_id, nome, created_at, updated_at)',
-            'gastos_parcelamentos(id, usuario_id, familia_id, categoria_gasto_id, nome, descricao, valor_total, parcelas_total, data_inicio, ativo, metodo_pagamento, tipo, necessidade, created_at, updated_at)',
-            'gastos_parcelas(id, parcelamento_id, usuario_id, familia_id, numero_parcela, valor, vencimento, gasto_id, status, created_at, updated_at)',
-            'gastos_recorrentes(id, usuario_id, familia_id, categoria_gasto_id, nome, descricao, valor, dia_do_mes, ativo, proxima_data, metodo_pagamento, tipo, necessidade, created_at, updated_at)',
-            'orcamentos_categorias(id, usuario_id, familia_id, categoria_gasto_id, mes, limite, alerta_80_enviado, alerta_100_enviado, created_at, updated_at)',
             'receitas(id, usuario_id, familia_id, nome, valor, data, descricao, conta_id, created_at, updated_at)',
             'contas(id, usuario_id, familia_id, nome, tipo, saldo_inicial, created_at, updated_at)',
             'transacoes(id, usuario_id, familia_id, tipo, valor, data, referencia_tipo, referencia_id, conta_origem_id, conta_destino_id, created_at, updated_at)',

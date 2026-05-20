@@ -13,7 +13,7 @@ import {
 import { dashboard, logout } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { LayoutGrid, LogOut, MessageCircle, Receipt, Tags, Users } from 'lucide-react';
+import { LayoutGrid, LogOut, MessageCircle, Users } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -25,16 +25,6 @@ const mainNavItems: NavItem[] = [
 ];
 
 const controleNavItems: NavItem[] = [
-    {
-        title: 'Gastos',
-        href: '/gastos',
-        icon: Receipt,
-    },
-    {
-        title: 'Categorias',
-        href: '/categorias',
-        icon: Tags,
-    },
     {
         title: 'Familia',
         href: '/familia',

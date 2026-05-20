@@ -206,7 +206,7 @@ export function ChatWidget() {
 
                             <div className="flex items-start justify-end gap-2">
                                 <div className="max-w-[85%] rounded-2xl rounded-tr-md bg-muted px-3 py-2 text-sm">
-                                    Quero ver meus gastos do mês.
+                                    Quero ver minhas receitas do mês.
                                 </div>
                             </div>
 
@@ -215,7 +215,7 @@ export function ChatWidget() {
                                     IA
                                 </div>
                                 <div className="max-w-[85%] rounded-2xl rounded-tl-md border bg-card px-3 py-2 text-sm">
-                                    Em breve vou listar seus gastos aqui e sugerir insights.
+                                    Em breve vou listar suas movimentações aqui e sugerir insights.
                                 </div>
                             </div>
                         </div>

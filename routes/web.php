@@ -13,8 +13,6 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [WebController::class, 'dashboard'])->name('dashboard');
-    Route::get('gastos', [WebController::class, 'gastosIndex'])->name('gastos.index');
-    Route::get('categorias', [WebController::class, 'categoriasIndex'])->name('categorias.index');
     Route::get('chat', [WebController::class, 'chatIndex'])->name('chat.index');
     Route::get('familia', [WebController::class, 'familiaIndex'])->name('familia.index');
 });
