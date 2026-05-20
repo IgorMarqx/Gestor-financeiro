@@ -13,16 +13,6 @@ class WebController extends Controller
         return Inertia::render('dashboard');
     }
 
-    public function gastosIndex()
-    {
-        return Inertia::render('gastos/index');
-    }
-
-    public function categoriasIndex()
-    {
-        return Inertia::render('categorias-gastos/index');
-    }
-
     public function chatIndex()
     {
         return Inertia::render('chat/index');
