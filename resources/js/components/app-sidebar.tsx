@@ -13,7 +13,7 @@ import {
 import { dashboard, logout } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { LayoutGrid, LogOut, MessageCircle, Users } from 'lucide-react';
+import { DollarSign, LayoutGrid, LogOut, MessageCircle, Users } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -26,10 +26,21 @@ const mainNavItems: NavItem[] = [
 
 const controleNavItems: NavItem[] = [
     {
+        title: 'Transações',
+        href: '/transacoes',
+        icon: DollarSign,
+    },
+];
+
+const configuracoesNavItems: NavItem[] = [
+    {
         title: 'Familia',
         href: '/familia',
         icon: Users,
     },
+];
+
+const agentesNavItems: NavItem[] = [
     {
         title: 'Chat IA',
         href: '/chat',
@@ -63,6 +74,8 @@ export function AppSidebar() {
             <SidebarContent>
                 <NavMain items={mainNavItems} title='Principal' />
                 <NavMain items={controleNavItems} title='Controle' />
+                <NavMain items={configuracoesNavItems} title='Configurações' />
+                <NavMain items={agentesNavItems} title='Agentes' />
             </SidebarContent>
 
             <SidebarFooter>
