@@ -18,7 +18,7 @@ export default function AppLayout({ children, breadcrumbs, ...props }: AppLayout
                 {children}
             </AppLayoutTemplate>
 
-            {page.url.includes('/chat') ? null : <ChatWidget />}
+            {/* {page.url.includes('/chat') ? null : <ChatWidget />} */}
         </>
     );
 }
