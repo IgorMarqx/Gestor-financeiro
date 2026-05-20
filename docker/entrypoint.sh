@@ -10,7 +10,7 @@ if ! grep -q '^APP_KEY=base64:' .env; then
 fi
 
 mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views bootstrap/cache
-chmod -R ug+rw storage bootstrap/cache
+chmod -R ug+rw storage bootstrap/cache 2>/dev/null || true
 
 if [ "${DB_CONNECTION:-}" = "mysql" ]; then
     until php -r "new PDO('mysql:host=${DB_HOST:-mysql};port=${DB_PORT:-3306}', '${DB_USERNAME:-laravel}', '${DB_PASSWORD:-secret}');" >/dev/null 2>&1; do
