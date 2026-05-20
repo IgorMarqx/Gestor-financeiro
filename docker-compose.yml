@@ -56,7 +56,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    user: "${DOCKER_UID:-1000}:${DOCKER_GID:-1000}"
     working_dir: /var/www/html
     command: npm run dev
     ports:
