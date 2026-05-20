@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    user: "${DOCKER_UID:-1000}:${DOCKER_GID:-1000}"
     ports:
       - "${APP_PORT:-8000}:8000"
     volumes:
@@ -29,6 +30,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    user: "${DOCKER_UID:-1000}:${DOCKER_GID:-1000}"
     command: php artisan queue:listen --tries=1
     volumes:
       - .:/var/www/html
@@ -54,6 +56,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    user: "${DOCKER_UID:-1000}:${DOCKER_GID:-1000}"
     working_dir: /var/www/html
     command: npm run dev
     ports:
