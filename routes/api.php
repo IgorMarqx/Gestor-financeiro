@@ -29,5 +29,7 @@ Route::middleware([
     Route::get('/reverb/configs', [ReverbConfigController::class, 'ReverbConfigs'])->name('api.reverb.configs');
 
     require __DIR__ . '/chat.php';
+    require __DIR__ . '/conta.php';
     require __DIR__ . '/familia.php';
+    require __DIR__ . '/transacao.php';
 });
