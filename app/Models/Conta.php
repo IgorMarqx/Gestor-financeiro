@@ -9,17 +9,18 @@ class Conta extends Model
 {
     use HasFactory;
 
-    protected $table = 'contas';
+    protected $table = 'conta';
 
     protected $fillable = [
-        'usuario_id',
+        'user_id',
         'familia_id',
         'nome',
-        'tipo',
-        'saldo_inicial',
+        'saldo_atual',
+        'created_by',
+        'updated_by',
     ];
 
     protected $casts = [
-        'saldo_inicial' => 'decimal:2',
+        'saldo_atual' => 'decimal:2',
     ];
 }
