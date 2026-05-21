@@ -10,32 +10,24 @@ class Transacao extends Model
 {
     use HasFactory;
 
-    protected $table = 'transacoes';
+    protected $table = 'transacao';
 
     protected $fillable = [
-        'usuario_id',
         'familia_id',
+        'conta_id',
+        'user_id',
         'tipo',
         'valor',
-        'data',
-        'referencia_tipo',
-        'referencia_id',
-        'conta_origem_id',
-        'conta_destino_id',
+        'descricao',
+        'anexo_url',
     ];
 
     protected $casts = [
         'valor' => 'decimal:2',
-        'data' => 'date:Y-m-d',
     ];
 
-    public function contaOrigem(): BelongsTo
+    public function conta(): BelongsTo
     {
-        return $this->belongsTo(Conta::class, 'conta_origem_id');
-    }
-
-    public function contaDestino(): BelongsTo
-    {
-        return $this->belongsTo(Conta::class, 'conta_destino_id');
+        return $this->belongsTo(Conta::class, 'conta_id');
     }
 }
