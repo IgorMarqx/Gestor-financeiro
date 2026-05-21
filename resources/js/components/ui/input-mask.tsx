@@ -60,12 +60,25 @@ const applyRgMask = (digits: string): string => {
 
 const applyMoneyMask = (digits: string): string => {
     const d = digits.replace(/^0+(?=\d)/, '').slice(0, 15);
+    if (d === '') return '';
+
     const cents = d.padStart(3, '0');
     const intPart = cents.slice(0, -2);
     const fracPart = cents.slice(-2);
 
     const withThousands = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    return `${withThousands},${fracPart}`;
+    return `R$ ${withThousands},${fracPart}`;
+};
+
+const unmaskMoney = (digits: string): string => {
+    const d = digits.replace(/^0+(?=\d)/, '');
+    if (d === '') return '';
+
+    const cents = d.padStart(3, '0');
+    const intPart = cents.slice(0, -2);
+    const fracPart = cents.slice(-2);
+
+    return `${Number(intPart)}.${fracPart}`;
 };
 
 const applyMask = (mask: InputMaskType, inputValue: string): InputMaskValueChange => {
@@ -74,7 +87,7 @@ const applyMask = (mask: InputMaskType, inputValue: string): InputMaskValueChang
     if (mask === 'cpf') return { raw: raw.slice(0, 11), value: applyCpfMask(raw) };
     if (mask === 'cnpj') return { raw: raw.slice(0, 14), value: applyCnpjMask(raw) };
     if (mask === 'rg') return { raw: raw.slice(0, 9), value: applyRgMask(raw) };
-    return { raw, value: applyMoneyMask(raw) };
+    return { raw: unmaskMoney(raw), value: applyMoneyMask(raw) };
 };
 
 function InputMask({ className, type, mask, value, onValueChange, ...props }: Props) {
@@ -102,4 +115,3 @@ function InputMask({ className, type, mask, value, onValueChange, ...props }: Pr
 }
 
 export { InputMask };
-
