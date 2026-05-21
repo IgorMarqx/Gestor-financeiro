@@ -2,29 +2,45 @@ import { Calendar, TrendingDown, TrendingUp, Wallet } from 'lucide-react';
 import MetricBadge from './metric-badge';
 import MetricCard from './metric-card';
 
-export default function MetricsGrid() {
+type MetricsGridProps = {
+    saldoAtual: string;
+    totalEntradas: string;
+    totalSaidas: string;
+    transacoesCount: number;
+};
+
+export default function MetricsGrid({
+    saldoAtual,
+    totalEntradas,
+    totalSaidas,
+    transacoesCount,
+}: MetricsGridProps) {
     return (
         <div className="mb-6 grid gap-3.5 lg:grid-cols-4">
             <MetricCard
                 icon={<Wallet className="h-3.5 w-3.5 text-[#009966]" />}
                 label="Saldo atual"
-                value="--"
-                detail={<MetricBadge>Sem dados no período</MetricBadge>}
+                value={saldoAtual}
+                detail={
+                    <MetricBadge>{`${transacoesCount} lançamentos`}</MetricBadge>
+                }
             />
             <MetricCard
                 icon={<TrendingUp className="h-3.5 w-3.5 text-[#009966]" />}
                 label="Total entradas"
-                value="--"
+                value={totalEntradas}
                 tone="income"
-                detail={<MetricBadge>Nenhum lançamento</MetricBadge>}
+                detail={<MetricBadge>Créditos registrados</MetricBadge>}
             />
             <MetricCard
                 icon={<TrendingDown className="h-3.5 w-3.5 text-[#cc4444]" />}
                 label="Total saídas"
-                value="--"
+                value={totalSaidas}
                 tone="expense"
                 detail={
-                    <MetricBadge tone="expense">Nenhum lançamento</MetricBadge>
+                    <MetricBadge tone="expense">
+                        Débitos registrados
+                    </MetricBadge>
                 }
             />
             <MetricCard
