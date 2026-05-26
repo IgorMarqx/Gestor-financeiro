@@ -12,6 +12,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('transacoes', [WebController::class, 'transacoesIndex'])->name('transacoes.index');
     Route::get('chat', [WebController::class, 'chatIndex'])->name('chat.index');
     Route::get('familia', [WebController::class, 'familiaIndex'])->name('familia.index');
+    Route::get('investimentos', [WebController::class, 'investimentosIndex'])->name('investimentos.index');
 });
 
 require __DIR__ . '/settings.php';
