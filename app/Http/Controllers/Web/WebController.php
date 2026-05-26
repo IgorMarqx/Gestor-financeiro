@@ -37,4 +37,9 @@ class WebController extends Controller
     {
         return Inertia::render('familia/index');
     }
+
+    public function investimentosIndex()
+    {
+        return Inertia::render('investimentos/index');
+    }
 }
