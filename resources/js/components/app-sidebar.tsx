@@ -13,7 +13,7 @@ import {
 import { dashboard, logout } from '@/routes';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { DollarSign, LayoutGrid, LogOut, MessageCircle, Users } from 'lucide-react';
+import { DollarSign, HandCoins, LayoutGrid, LogOut, MessageCircle, Users } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -30,6 +30,11 @@ const controleNavItems: NavItem[] = [
         href: '/transacoes',
         icon: DollarSign,
     },
+    {
+        title: 'Investimentos',
+        href: '/investimentos',
+        icon: HandCoins,
+    }
 ];
 
 const configuracoesNavItems: NavItem[] = [
